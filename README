@@ -1,6 +1,6 @@
-c¤³¤Î¥é¥¤¥Ö¥é¥ê¤Ï mixiGraphAPI ¤ò node.js¤«¤éÈæ³ÓÅª´ÊÃ±¤Ë°·¤¦¤¿¤á¤Î
-¥¯¥é¥¤¥¢¥ó¥È¥é¥¤¥Ö¥é¥ê¤Ç¤¹¡£¼¡¤Î¤è¤¦¤ËÍøÍÑ¤·¤Ş¤¹¡£
-(mixiGraphAPI¤Î¾Ü¤·¤¤°·¤¤Êı¤Ï http://developer.mixi.co.jp/connect/mixi_graph_api ¤ò»²¹Í¤Ë¤·¤Æ¤¯¤À¤µ¤¤)
+cã“ã®ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã¯ mixiGraphAPI ã‚’ node.jsã‹ã‚‰æ¯”è¼ƒçš„ç°¡å˜ã«æ‰±ã†ãŸã‚ã®
+ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆãƒ©ã‚¤ãƒ–ãƒ©ãƒªã§ã™ã€‚æ¬¡ã®ã‚ˆã†ã«åˆ©ç”¨ã—ã¾ã™ã€‚
+(mixiGraphAPIã®è©³ã—ã„æ‰±ã„æ–¹ã¯ http://developer.mixi.co.jp/connect/mixi_graph_api ã‚’å‚è€ƒã«ã—ã¦ãã ã•ã„)
 
    var api = require('./mixi/graphapi/client');
    var client = api.createClient({
@@ -9,19 +9,19 @@ c¤³¤Î¥é¥¤¥Ö¥é¥ê¤Ï mixiGraphAPI ¤ò node.js¤«¤éÈæ³ÓÅª´ÊÃ±¤Ë°·¤¦¤¿¤á¤Î
        'redirectURL' : 'you setting redirect uri'
    });
 
-  // Ç§²Ä²èÌÌ¤ÎURL¤ò¼èÆÀ¤¹¤ë
+  // èªå¯ç”»é¢ã®URLã‚’å–å¾—ã™ã‚‹
   var authPageURL = client.authPageUrl(['r_profile', 'r_profile_status']);
 
-  // ¥¢¥¯¥»¥¹¥È¡¼¥¯¥ó¤È¥ê¥Õ¥ì¥Ã¥·¥å¥È¡¼¥¯¥ó¤ò¼èÆÀ
+  // ã‚¢ã‚¯ã‚»ã‚¹ãƒˆãƒ¼ã‚¯ãƒ³ã¨ãƒªãƒ•ãƒ¬ãƒƒã‚·ãƒ¥ãƒˆãƒ¼ã‚¯ãƒ³ã‚’å–å¾—
   var tokens;
   client.getTokens('authCode', function (response) {tokens = response;});
 
-  // ¥¢¥¯¥»¥¹¥È¡¼¥¯¥ó¤òºÆÈ¯¹Ô
+  // ã‚¢ã‚¯ã‚»ã‚¹ãƒˆãƒ¼ã‚¯ãƒ³ã‚’å†ç™ºè¡Œ
   client.refresh(tokens.refresh_token, function (response) {
       tokens = response;
   });
 
-  // API¤Ø¥¢¥¯¥»¥¹¤¹¤ë
+  // APIã¸ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹
   var result;
   client.request({
       'accessToken' : tokens.access_token,
