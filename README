@@ -1,0 +1,37 @@
+cこのライブラリは mixiGraphAPI を node.jsから比較的簡単に扱うための
+クライアントライブラリです。次のように利用します。
+(mixiGraphAPIの詳しい扱い方は http://developer.mixi.co.jp/connect/mixi_graph_api を参考にしてください)
+
+   var api = require('./mixi/graphapi/client');
+   var client = api.createClient({
+       'consumerKey' : 'your consumer key.',
+       'secret'      : 'your consumer secret. ',
+       'redirectURL' : 'you setting redirect uri'
+   });
+
+  // 認可画面のURLを取得する
+  var authPageURL = client.authPageUrl(['r_profile', 'r_profile_status']);
+
+  // アクセストークンとリフレッシュトークンを取得
+  var tokens;
+  client.getTokens('authCode', function (response) {tokens = response;});
+
+  // アクセストークンを再発行
+  client.refresh(tokens.refresh_token, function (response) {
+      tokens = response;
+  });
+
+  // APIへアクセスする
+  var result;
+  client.request({
+      'accessToken' : tokens.access_token,
+      'target'      : 'people/@me/@friends'
+  }, function (response) {
+      result = response;
+  });
+
+
+@TODO:
+  * add tests
+  * add documents
+  * add wrappers and wrappers documents.
