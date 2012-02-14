@@ -1,4 +1,4 @@
-cこのライブラリは mixiGraphAPI を node.jsから比較的簡単に扱うための
+このライブラリは mixiGraphAPI を node.jsから比較的簡単に扱うための
 クライアントライブラリです。次のように利用します。
 (mixiGraphAPIの詳しい扱い方は http://developer.mixi.co.jp/connect/mixi_graph_api を参考にしてください)
 
