@@ -4,13 +4,13 @@ var https       = require('https');
 var querystring = require('querystring');
 
 var AUTH_PAGE = {
-    'pc'           : 'http://mixi.jp/connect_authorize.pl',
-    'smartphone'   : 'http://mixi.jp/connect_authorize.pl',
+    'pc'           : 'https://mixi.jp/connect_authorize.pl',
+    'smartphone'   : 'https://mixi.jp/connect_authorize.pl',
     'featurephone' : 'http://m.mixi.jp/connect_authorize.pl'
 };
 
 var SECURE_TOKEN_ENDPOINT = 'https://secure.mixi-platform.com/2/';
-var API_ENDPOINT          = 'http://api.mixi-platform.com/2/';
+var API_ENDPOINT          = 'https://api.mixi-platform.com/2/';
 
 var Client = function (param) {
     if (!param.consumerKey || !param.secret) {
