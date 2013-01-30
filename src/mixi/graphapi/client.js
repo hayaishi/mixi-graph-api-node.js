@@ -111,6 +111,21 @@ Client.prototype.getTokens = function (code, callback) {
     });
 };
 
+Client.prototype.getClientTokens = function (callback) {
+    var cb = (callback) ? callback : function () {};
+    var requestParam = {
+        'grant_type'    : 'client_credentials',
+        'client_id'     : this.consumerKey,
+        'client_secret' : this.secret,
+    };
+    return this._request(SECURE_TOKEN_ENDPOINT, {
+        'method'   : 'POST',
+        'target'   : 'token',
+        'query'    : requestParam,
+        'callback' : createResponseParser(cb)
+    });
+};
+
 Client.prototype.refresh = function (refreshToken, callback) {
     var cb = (callback) ? callback : function () {};
     var requestParam = {
